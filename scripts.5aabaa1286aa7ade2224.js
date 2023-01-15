@@ -1,0 +1,1 @@
+function Hello(){console.log("\u3046\u3093\u3061 !")}
