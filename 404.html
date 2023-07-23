@@ -6,8 +6,66 @@
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <script src="assets/script.js"></script>
 <link rel="stylesheet" href="styles.31d6cfe0d16ae931b73c.css"></head>
-<body>
+<body style="margin: 0;">
   <app-root></app-root>
-<script src="runtime.858664e4b485a02fe040.js" defer></script><script src="polyfills.27ca2c9c8a061ff6077e.js" defer></script><script src="scripts.5aabaa1286aa7ade2224.js" defer></script><script src="main.5cf1ee882a82648bb8f0.js" defer></script>
+<script src="runtime.858664e4b485a02fe040.js" defer></script><script src="polyfills.27ca2c9c8a061ff6077e.js" defer></script><script src="scripts.5aabaa1286aa7ade2224.js" defer></script><script src="main.c94ebd989508e31c4167.js" defer></script>
 
-</body></html>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  console.log('ごりらのへやにようこそ');
+  resizeWindow();
+
+  var setImg = '#photo';
+  var fadeSpeed = 1600;
+  var switchDelay = 5000;
+  $(setImg).children('img').css({opacity:'0'});
+  $(setImg + ' img:first').stop().animate({opacity:'1',zIndex:'20'},fadeSpeed);
+
+  setInterval(function(){
+      //console.log('あああ');
+      $(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
+  },switchDelay);
+  setInterval(function(){
+    try{
+      var elem = document.getElementById("image1");
+      resizeWindow();
+    }catch(e){
+
+    }
+  },100);
+
+
+});
+function resizeWindow(){
+    //console.log('ウィンドウ幅のリサイズを検出');
+    var windowsize = window.innerWidth;
+    try{
+      var elem = document.getElementById("image1");
+      var elem2 = document.getElementById("image2");
+      var elem3 = document.getElementById("image3");
+      var elem4 = document.getElementById("image4");
+      var elem5 = document.getElementById("image5");
+      var elem6 = document.getElementById("image6");
+      if(windowsize < 768){
+        elem.src = "./assets/bg01s.png";
+        elem2.src = "./assets/bg02s.png";
+        elem3.src = "./assets/bg03s.png";
+        elem4.src = "./assets/bg04s.png";
+        elem5.src = "./assets/bg05s.png";
+        elem6.src = "./assets/bg06s.png";
+      } else {
+        elem.src = "./assets/bg01.png";
+        elem2.src = "./assets/bg02.png";
+        elem3.src = "./assets/bg03.png";
+        elem4.src = "./assets/bg04.png";
+        elem5.src = "./assets/bg05.png";
+        elem6.src = "./assets/bg06.png";
+      }
+    }catch(e){
+      //console.log('対象外画面');
+    }
+
+}
+window.onresize = resizeWindow;
+</script></body></html>
